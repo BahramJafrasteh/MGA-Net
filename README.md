@@ -2,8 +2,23 @@
 
 ![MGA-Net Architecture](https://github.com/BahramJafrasteh/MGA-Net/blob/main/figures/Network_Architecture.png)
 
-
-Mask-Guided Attention U-Net for Enhanced Neonatal Brain Extraction and Image Preprocessing
+## Dependencies
+This software depends on the following libraries:
+```
+torch
+numpy
+nibabel
+SimpleITK
+Sickit-image
+Scipy
+```
+## Command
+    ```sh
+    python brain_extraction.py input_file eco_mri threshold
+    ```
+    where input_file is the input nifti image. eco_mri is a variable to define image modality (MRI=1, US=-1) and threshol is the brain extraction threshold.
+    
+# Mask-Guided Attention U-Net for Enhanced Neonatal Brain Extraction and Image Preprocessing
 
 In this study, we introduce MGA-Net, a novel mask-guided attention neural network, which extends the U-net model for precision neonatal brain imaging. MGA-Net is designed to extract the brain from other structures and reconstruct high-quality brain images. The network employs a common encoder and two decoders: one for brain mask extraction and the other for brain region reconstruction.
 
