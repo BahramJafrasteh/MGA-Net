@@ -1,6 +1,7 @@
 # MGA-Net
 
-![MGA-Net Architecture]([https://github.com/BahramJafrasteh/MGA-Net/blob/main/figures/Network_Architecture.png])
+![MGA-Net Architecture](https://github.com/BahramJafrasteh/MGA-Net/blob/main/figures/Network_Architecture.png)
+
 
 Mask-Guided Attention U-Net for Enhanced Neonatal Brain Extraction and Image Preprocessing
 
