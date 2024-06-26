@@ -12,11 +12,11 @@ SimpleITK
 Sickit-image
 Scipy
 ```
-## Command
-    ```
-    python brain_extraction.py input_file eco_mri threshold
-    ```
-    where input_file is the input nifti image. eco_mri is a variable to define image modality (MRI=1, US=-1) and threshol is the brain extraction threshold.
+## Brain extraction
+```
+python brain_extraction.py input_file eco_mri threshold
+```
+where input_file is the input nifti image. eco_mri is a variable to define image modality (MRI=1, US=-1) and threshol is the brain extraction threshold.
     
 # Mask-Guided Attention U-Net for Enhanced Neonatal Brain Extraction and Image Preprocessing
 
