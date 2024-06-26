@@ -13,7 +13,7 @@ Sickit-image
 Scipy
 ```
 ## Command
-    ```sh
+    ```
     python brain_extraction.py input_file eco_mri threshold
     ```
     where input_file is the input nifti image. eco_mri is a variable to define image modality (MRI=1, US=-1) and threshol is the brain extraction threshold.
