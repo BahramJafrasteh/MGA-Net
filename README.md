@@ -12,7 +12,7 @@ SimpleITK
 Sickit-image
 Scipy
 ```
-## Brain extraction
+## running the model
 ```
 python brain_extraction.py input_file eco_mri threshold
 ```
