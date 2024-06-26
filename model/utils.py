@@ -3,6 +3,23 @@ import nibabel as nib
 import SimpleITK as sitk
 from skimage.measure import label as label_connector
 __AUTHOR__ = 'Bahram Jafrasteh'
+code_direction = (('L', 'R'), ('P', 'A'), ('I', 'S'))
+def convert_to_ras(affine, target = "RAS"):
+    """
+    Args:
+        affine: affine matrix
+        target: target system
+
+    Returns:
+
+    """
+    from nibabel.orientations import aff2axcodes, axcodes2ornt, ornt_transform
+    orig_orient = nib.io_orientation(affine)
+    source_system = ''.join(list(aff2axcodes(affine, code_direction)))# get direction
+    target_orient = axcodes2ornt(target, code_direction)
+    transform = ornt_transform(orig_orient, target_orient)
+
+    return transform, source_system
 def LargestCC(segmentation, connectivity=3):
     """
     Get largets connected components
