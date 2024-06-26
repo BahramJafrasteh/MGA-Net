@@ -1,6 +1,5 @@
 __AUTHOR__ = 'Bahram Jafrasteh'
 from model.mga_net import MGA_NET
-from MELAGE.utils.utils import convert_to_ras
 import torch
 import sys
 import os
