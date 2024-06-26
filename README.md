@@ -14,9 +14,9 @@ Scipy
 ```
 ## running the model
 ```
-python brain_extraction.py input_file eco_mri threshold
+python test_mgaNet.py image.nii.gz (-1 or 1) (float value -3 to 3)
 ```
-where input_file is the input nifti image. eco_mri is a variable to define image modality (MRI=1, US=-1) and threshol is the brain extraction threshold.
+where image.nii.gz is an input nifti image. (-1 or 1) is a variable to define image modality (MRI=1, US=-1) and (float value -3 to 3) is the threshold to select the mask.
     
 # Mask-Guided Attention U-Net for Enhanced Neonatal Brain Extraction and Image Preprocessing
 
