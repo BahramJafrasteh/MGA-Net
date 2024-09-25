@@ -30,7 +30,7 @@ We extensively validated the proposed MGA-Net on diverse datasets from varied cl
 Thus, MGA-Net represents a robust and effective preprocessing tool for MRI and 3D ultrasound images, marking a significant advance in neuroimaging that enhances both research and clinical diagnostics in the neonatal period and beyond.
 
 For more details, refer to the full paper: [Mask-Guided Attention U-Net for Enhanced Neonatal Brain Extraction and Image Preprocessing](https://arxiv.org/abs/2406.17709)
-
+Paper accepted for publication in "NeuroImage".
 ### Citation
 ```apache
 @misc{jafrasteh2024maskguidedattentionunetenhanced,
