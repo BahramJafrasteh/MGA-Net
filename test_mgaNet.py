@@ -1,4 +1,10 @@
 __AUTHOR__ = 'Bahram Jafrasteh'
+
+"""
+This script accepts a file with format xx.nii.gz and generate a mask with format xx_mask.nii.gz and a reconstructed file with format xx_rec.nii.gz
+please be careful in selection of eco_mri variable that should be 1 for MRI and -1 for US images.
+you can change the threshold value as you want to improve the brain extraction.
+"""
 from model.mga_net import MGA_NET
 
 import torch
