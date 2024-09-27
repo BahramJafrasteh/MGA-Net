@@ -1,10 +1,4 @@
 __AUTHOR__ = 'Bahram Jafrasteh'
-
-"""
-This script accepts a file with format xx.nii.gz and generate a mask with format xx_mask.nii.gz and a reconstructed file with format xx_rec.nii.gz
-please be careful in selection of eco_mri variable that should be 1 for MRI and -1 for US images.
-you can change the threshold value as you want to improve the brain extraction.
-"""
 from model.mga_net import MGA_NET
 
 import torch
@@ -47,13 +41,19 @@ model.load_state_dict(state_dict['model'], strict=True)
 time = torch.from_numpy(np.array(eco_mri)).unsqueeze(0).to(torch.float).to(device)
 imA = nib.load(file_inp)
 affine_initial = imA.affine
-imA_initial = imA.get_fdata().copy()
+imA_initial0 = imA.get_fdata().copy()
 shape_initial = imA.shape
 header_initial = imA.header
 
 transform, source = convert_to_ras(imA.affine, target='RAS')
 if source != 'RAS':
     imA = imA.as_reoriented(transform)
+    imA_initial = imA.get_fdata().copy()
+    shape_initial = imA.shape
+    header_initial = imA.header
+else:
+    imA_initial0 = imA.get_fdata().copy()
+
 
 pixdim = imA.header['pixdim'][1:4]
 affine = imA.affine
@@ -131,7 +131,7 @@ im_mask[~ind] = 1
 im_mask = binary_fill_holes(im_mask)
 im_mask, labels_freq = LargestCC(im_mask, connectivity=1)
 argmax = np.argmax(
-    [imA_initial[im_mask == el].sum() for el in range(len(labels_freq)) if el != 0]) + 1
+    [imA_initial0[im_mask == el].sum() for el in range(len(labels_freq)) if el != 0]) + 1
 
 ind = im_mask != argmax
 im_mask[ind] = 0
@@ -139,7 +139,7 @@ im_mask[~ind] = 1
 
 
 
-a1 = normalize_mri(imA_initial * im_mask)
+a1 = normalize_mri(imA_initial0 * im_mask)
 rec = normalize_mri(im_rec.get_fdata() * im_mask)
 
 imB = im_rec.get_fdata().copy()
