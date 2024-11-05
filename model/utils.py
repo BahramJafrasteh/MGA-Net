@@ -65,7 +65,7 @@ def read_nib_as_sitk(image_nib, dtype=None):
     # From https://github.com/gift-surg/PySiTK/blob/master/pysitk/simple_itk_helper.py
     if dtype is None:
         dtype = np.float32#image_nib.header["bitpix"].dtype
-    nda_nib = image_nib.get_data().astype(dtype)
+    nda_nib = image_nib.get_fdata().astype(dtype)
     nda_nib_shape = nda_nib.shape
     nda = np.zeros((nda_nib_shape[2],
                     nda_nib_shape[1],
